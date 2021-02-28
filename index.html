@@ -3,13 +3,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        fieldset{
+            margin-bottom: 20px;
+            padding: 30px;
+        } 
+    </style>
     <title>Document</title>
 </head>
 <body>
-    <label> Inserisci la tua lista<br>
-        <input name="elementoLista" id="elementoLista"><br>
-    </label><br>
-    <input type="submit" value="Crea Lista" id="submit">
+    <fieldset>
+        <label>Inserisci un elemento per la tua lista:<br>
+            <input name="elementoLista" id="elementoLista"><br>
+        </label><br>
+        <input type="submit" onclick="createList()" value="Crea Lista" id="submit">
+        <br>
+        <input type="submit" onclick="saveList()" value="Crea una nuova lista" id="creaNuovaLista">
+    </fieldset>
+    <fieldset id="sezione-lista">
+        <legend>Lista/e</legend>
+        <div class="lista-wrapper">
+            <ul id="ul-lista"></ul>
+        </div>
+    </fieldset>
 </body>
 <script src="custom.js"></script>
 </html>
