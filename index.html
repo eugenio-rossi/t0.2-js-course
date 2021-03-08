@@ -17,14 +17,14 @@
         <label>Inserisci un elemento per la tua lista:<br>
             <input name="elementoLista" id="elementoLista"><br>
         </label><br>
-        <input type="submit" onclick="createList()" value="Crea Lista" id="submit">
+        <input type="submit" onclick="addElementToList()" value="Crea Lista" id="submit">
         <br>
-        <input type="submit" onclick="saveList()" value="Crea una nuova lista" id="creaNuovaLista">
+        <input type="submit" onclick="saveList()" value="Salva la lista" id="creaNuovaLista">
     </fieldset>
     <fieldset id="sezione-lista">
         <legend>Lista/e</legend>
         <div class="lista-wrapper">
-            <ul id="ul-lista"></ul>
+            <ul class="current-lista"></ul>
         </div>
     </fieldset>
 </body>

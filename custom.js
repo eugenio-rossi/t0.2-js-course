@@ -1,13 +1,20 @@
-console.log('connected');
+const list = {
+    name: "Title",
+    tasks: [],
+    color: "#ececec"
+};
 
 const sezioneLista = document.getElementById("sezione-lista");
 
-function createList() {
+const arrayList = []
+
+function addElementToList() {
   const elementoLista = document.getElementById('elementoLista');
   const listaValue = elementoLista.value;
-
+  arrayList.push(listaValue);
   let ulLista = document.getElementById("ul-lista");
   ulLista.innerHTML += `<li>${listaValue}</li>`;
+  list.tasks.push(arrayList);
 
 }
 
