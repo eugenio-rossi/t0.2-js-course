@@ -15,18 +15,42 @@
 <body>
     <fieldset>
         <label>Inserisci un elemento per la tua lista:<br>
-            <input name="elementoLista" id="elementoLista"><br>
-        </label><br>
-        <input type="submit" onclick="addElementToList()" value="Crea Lista" id="submit">
-        <br>
-        <input type="submit" onclick="saveList()" value="Salva la lista" id="creaNuovaLista">
+
+            <!-- Titolo -->
+            <label for="title">Titolo</label><br>
+            <input type="text" id="title" name="title"><br>
+            <!-- End  Titolo -->
+
+            <!-- Task -->
+            <label for="listTask">Task</label><br>
+            <input name="listTask" id="listTask"><br>
+            <!-- End  Task -->
+
+            <!-- Color -->
+            <label for="color">Color</label><br>
+            <input type="color" id="color" name="color" value="#e66465" style="margin-bottom: 40px;"><br>
+            <!-- End  Color -->
+
+            <!-- Submit AddToList -->
+            <input type="submit" onclick="addElementToList()" value="Crea Lista" id="submit" style="margin-bottom: 40px;">
+            <br>
+            <!-- End Submit AddToList -->
+
+            <!-- Submit SaveList -->
+            <input type="submit" onclick="saveList()" value="Salva la lista" id="creaNuovaLista">
+            <!-- End Submit SaveList -->
+
     </fieldset>
-    <fieldset id="sezione-lista">
-        <legend>Lista/e</legend>
+
+    <!-- Start Fieldset where print the outcome -->
+    <fieldset id="list-section">
+        <legend>Lists</legend>
         <div class="lista-wrapper">
-            <ul class="current-lista"></ul>
+            <ul id="sectionListedElements" class="sectionListedElements"></ul>
         </div>
     </fieldset>
+    <!-- End Fieldset where print the outcome -->
+    
 </body>
 <script src="custom.js"></script>
 </html>

@@ -4,23 +4,30 @@ const list = {
     color: "#ececec"
 };
 
-const sezioneLista = document.getElementById("sezione-lista");
+const listSection = document.getElementById("list-section");
 
 const arrayList = []
 
 function addElementToList() {
-  const elementoLista = document.getElementById('elementoLista');
-  const listaValue = elementoLista.value;
-  arrayList.push(listaValue);
-  let ulLista = document.getElementById("ul-lista");
-  ulLista.innerHTML += `<li>${listaValue}</li>`;
-  list.tasks.push(arrayList);
+  const taskElement = document.getElementById('listTask');
+  const titleList = document.getElementById('title');
+  const taskValue = taskElement.value;
 
+  arrayList.push(taskValue);
+  let ulLista = document.getElementById("sectionListedElements");
+  list.name = titleList;
+  if (taskValue != "") {
+    ulLista.innerHTML += `<li>${taskValue}</li>`;
+    list.tasks.push(arrayList);
+  }
+  else{
+    alert("seleziona un valore valido")
+  }
 }
 
 function saveList(){
 
-  let listedElements = document.getElementById("ul-lista").getElementsByTagName("li");
+  let listedElements = document.getElementById("sectionListedElements").getElementsByTagName("li");
   // trasformo la collection HTML in array per semplicità
   let listedArray = Array.from(listedElements);
   listedArray.forEach(element => {
