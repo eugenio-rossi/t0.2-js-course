@@ -16,7 +16,8 @@ function addElementToList() {
   arrayList.push(taskValue);
   let ulLista = document.getElementById("sectionListedElements");
   list.name = titleList;
-  if (taskValue != "") {
+  // Use falsy
+  if (!taskValue) {
     ulLista.innerHTML += `<li>${taskValue}</li>`;
     list.tasks.push(arrayList);
   }
