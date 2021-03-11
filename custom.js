@@ -3,29 +3,42 @@ let list = {
     tasks: [],
     color: "#ececec"
 };
+let ulLista = document.getElementById("sectionListedElements");
 
+// Questo probabilente servirà per un refactor
 function deleteFromTasks(index) {
-    list.task.splice(index, 1);
-}
+     list.tasks.splice(index, 1);
+     ulLista.innerHTML = "";
+
+     list.tasks.forEach(element => {
+       console.log(list.tasks);
+       console.log(element);
+       ulLista.innerHTML += `<li> ${element} <button onclick='deleteFromTasks(list.tasks.length - 1)' style='margin-left:20px;'>X</button></li>`
+     });
+ }
 
 const listSection = document.getElementById("list-section");
 
 function addElementToList() {
   const taskElement = document.getElementById('listTask');
   const taskValue = taskElement.value;
-
   const titleList = document.getElementById('title');
-  let ulLista = document.getElementById("sectionListedElements");
   list.name = titleList;
 
   // Use falsy
   if (taskValue) {
-    ulLista.innerHTML += `<li>${taskValue}<span>   X</span></li>`;
     list.tasks.push(taskValue);
+    let listHTML = "<li>" + taskValue;
+    let indexElement = list.tasks.indexOf(taskValue);
+    console.log(indexElement);
+    listHTML += "<button onclick='deleteFromTasks(indexElement)' style='margin-left:20px;'>X</button>";
+    listHTML += "</li>";
+    ulLista.innerHTML += listHTML;
   }
   else{
     alert("seleziona un valore valido");
   }
+  
 }
 
 function saveList(){
