@@ -1,28 +1,30 @@
-const list = {
+let list = {
     name: "Title",
     tasks: [],
     color: "#ececec"
 };
 
-const listSection = document.getElementById("list-section");
+function deleteFromTasks(index) {
+    list.task.splice(index, 1);
+}
 
-const arrayList = []
+const listSection = document.getElementById("list-section");
 
 function addElementToList() {
   const taskElement = document.getElementById('listTask');
-  const titleList = document.getElementById('title');
   const taskValue = taskElement.value;
 
-  arrayList.push(taskValue);
+  const titleList = document.getElementById('title');
   let ulLista = document.getElementById("sectionListedElements");
   list.name = titleList;
+
   // Use falsy
-  if (!taskValue) {
-    ulLista.innerHTML += `<li>${taskValue}</li>`;
-    list.tasks.push(arrayList);
+  if (taskValue) {
+    ulLista.innerHTML += `<li>${taskValue}<span>   X</span></li>`;
+    list.tasks.push(taskValue);
   }
   else{
-    alert("seleziona un valore valido")
+    alert("seleziona un valore valido");
   }
 }
 
