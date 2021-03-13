@@ -11,11 +11,26 @@ function deleteFromTasks(index) {
      ulLista.innerHTML = "";
 
      list.tasks.forEach(element => {
-       console.log(list.tasks);
-       console.log(element);
-       ulLista.innerHTML += `<li> ${element} <button onclick='deleteFromTasks(list.tasks.length - 1)' style='margin-left:20px;'>X</button></li>`
+      cerateListButton(element);
      });
  }
+
+ function cerateList(elementValue){
+  const elementIndex = list.tasks.length;
+  let listHTML = "<li>" + elementValue;
+  listHTML += "<button onclick='deleteFromTasks(" + elementIndex + ")' style='margin-left:20px;'>X</button>";
+  listHTML += "</li>";
+  ulLista.innerHTML += listHTML;
+  list.tasks.push(elementValue);
+ }
+ function cerateListButton(elementValue){
+  const elementIndex = list.tasks.indexOf(elementValue);
+  let listHTML = "<li>" + elementValue;
+  listHTML += "<button onclick='deleteFromTasks(" + elementIndex + ")' style='margin-left:20px;'>X</button>";
+  listHTML += "</li>";
+  ulLista.innerHTML += listHTML;
+ }
+
 
 const listSection = document.getElementById("list-section");
 
@@ -27,13 +42,7 @@ function addElementToList() {
 
   // Use falsy
   if (taskValue) {
-    list.tasks.push(taskValue);
-    let listHTML = "<li>" + taskValue;
-    let indexElement = list.tasks.indexOf(taskValue);
-    console.log(indexElement);
-    listHTML += "<button onclick='deleteFromTasks(indexElement)' style='margin-left:20px;'>X</button>";
-    listHTML += "</li>";
-    ulLista.innerHTML += listHTML;
+    cerateList(taskValue);
   }
   else{
     alert("seleziona un valore valido");
