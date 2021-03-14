@@ -64,8 +64,8 @@ function saveList(){
     // Creo elemento per appenderlo dopo la sezione riservata alla creazione della lista
     let newDomItem = document.createElement("div");
     newDomItem.setAttribute("id", list.id); 
-    newDomItem.setAttribute("class", "card "); 
-    newDomItem.setAttribute("style","width: 18rem; padding: 20px; background-color:" + list.color);
+    newDomItem.setAttribute("class", "card newElement"); 
+    newDomItem.setAttribute("style","background-color:" + list.color);
     newDomItem.innerHTML = `<h5 class="card-title">${list.name}</h5><br>`;
     list.tasks.forEach(element => {
       newDomItem.innerHTML += `<li class="card-text">${element}</li><br>`;
