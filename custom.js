@@ -1,11 +1,12 @@
 let list = {
+    id: Math.floor(Math.random()* 100),
     name: "Title",
     tasks: [],
     color: "#ececec"
 };
 let ulLista = document.getElementById("sectionListedElements");
+const parentList = ulLista.parentNode;
 
-// Questo probabilente servirà per un refactor
 function deleteFromTasks(index) {
      list.tasks.splice(index, 1);
      ulLista.innerHTML = "";
@@ -23,6 +24,8 @@ function deleteFromTasks(index) {
   ulLista.innerHTML += listHTML;
   list.tasks.push(elementValue);
  }
+
+ // Necessario crearne due, la cui unica differenza è nel fatto che questa sotto non pusha nell'oggetto la lista?
  function cerateListButton(elementValue){
   const elementIndex = list.tasks.indexOf(elementValue);
   let listHTML = "<li>" + elementValue;
@@ -37,8 +40,10 @@ const listSection = document.getElementById("list-section");
 function addElementToList() {
   const taskElement = document.getElementById('listTask');
   const taskValue = taskElement.value;
-  const titleList = document.getElementById('title');
+  const titleList = document.getElementById('title').value;
+  const colorList = document.getElementById('color').value;
   list.name = titleList;
+  list.color = colorList;
 
   // Use falsy
   if (taskValue) {
@@ -51,18 +56,21 @@ function addElementToList() {
 }
 
 function saveList(){
+    let listToJSON = JSON.stringify(list);
+    let listKey = "list ID : " + list.id;
+    localStorage.setItem(listKey, listToJSON);
+    ulLista.innerHTML = "";
 
-  let listedElements = document.getElementById("sectionListedElements").getElementsByTagName("li");
-  // trasformo la collection HTML in array per semplicità
-  let listedArray = Array.from(listedElements);
-  listedArray.forEach(element => {
-    alert(element.innerHTML);
-  });
-}
+    // Creo elemento per appenderlo dopo la sezione riservata alla creazione della lista
+    let newDomItem = document.createElement("div");
+    newDomItem.setAttribute("id", list.id); 
+    newDomItem.setAttribute("class", "card "); 
+    newDomItem.setAttribute("style","width: 18rem; padding: 20px; background-color:" + list.color);
+    newDomItem.innerHTML = `<h5 class="card-title">${list.name}</h5><br>`;
+    list.tasks.forEach(element => {
+      newDomItem.innerHTML += `<li class="card-text">${element}</li><br>`;
+    });
 
+    parentList.insertBefore(newDomItem, ulLista.nextSibling);
 
-// Step:
-// #1: Salvare a WebStorage L'elemento
-// #1.1: OnSubmit del button, salvare a variabile il valore dell'input e inserirlo in un array nel web storage.
-// #2: Creare una nuova Lista
-// #3: Colorare gli elmenti
+  }
