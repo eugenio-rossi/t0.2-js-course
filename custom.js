@@ -4,6 +4,7 @@ let list = {
     tasks: [],
     color: "#ececec"
 };
+
 let ulLista = document.getElementById("sectionListedElements");
 const parentList = ulLista.parentNode;
 
@@ -17,11 +18,7 @@ function deleteFromTasks(index) {
  }
 
  function cerateList(elementValue){
-  const elementIndex = list.tasks.length;
-  let listHTML = "<li>" + elementValue;
-  listHTML += "<button onclick='deleteFromTasks(" + elementIndex + ")' style='margin-left:20px;'>X</button>";
-  listHTML += "</li>";
-  ulLista.innerHTML += listHTML;
+  cerateListButton(elementValue);
   list.tasks.push(elementValue);
  }
 
@@ -33,7 +30,6 @@ function deleteFromTasks(index) {
   listHTML += "</li>";
   ulLista.innerHTML += listHTML;
  }
-
 
 const listSection = document.getElementById("list-section");
 
@@ -52,7 +48,6 @@ function addElementToList() {
   else{
     alert("seleziona un valore valido");
   }
-  
 }
 
 function saveList(){
