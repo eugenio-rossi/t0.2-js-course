@@ -5,30 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <style>
-        fieldset{
-            margin-bottom: 20px;
-            padding: 30px;
-        } 
-        ul {
-            min-height: 125px;
-            width: 18rem;
-            padding: 20px;
-        }
-        .lista-wrapper {
-            display: flex;
-        }
-
-        .newElement {
-            width: 18rem;
-            margin: 0px 20px;
-            padding: 20px;
-        }
     </style>
     <title>Document</title>
 </head>
 <body>
-    <fieldset>
-        <label>Inserisci un elemento per la tua lista:<br>
+
+    <label>Inserisci un elemento per la tua lista:<br>
 
             <!-- Titolo -->
             <label for="title">Titolo</label><br>
@@ -54,7 +36,6 @@
             <input type="submit" onclick="saveList()" value="Salva la lista" id="creaNuovaLista">
             <!-- End Submit SaveList -->
 
-    </fieldset>
 
     <!-- Start Fieldset where print the outcome -->
     <fieldset id="list-section">
