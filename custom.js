@@ -18,8 +18,8 @@ function deleteFromTasks(index) {
  }
 
  function cerateList(elementValue){
-  cerateListButton(elementValue);
-  list.tasks.push(elementValue);
+    cerateListButton(elementValue);
+    list.tasks.push(elementValue);
  }
 
  // Necessario crearne due, la cui unica differenza è nel fatto che questa sotto non pusha nell'oggetto la lista?
@@ -67,5 +67,4 @@ function saveList(){
     });
 
     parentList.insertBefore(newDomItem, ulLista.nextSibling);
-
-  }
+}
