@@ -12,6 +12,7 @@ let list = [{
 
 const addToList = document.getElementById("addToList");
 const createList = document.getElementById("createList");
+const sectionListedElements = document.getElementById("sectionListedElements");
 
 let cardBody = document.getElementsByClassName("card-body").item(0);
 let sectionListedTitle = document.getElementById("sectionListedTitle");
@@ -20,6 +21,16 @@ function addTaskToList() {
   // Logical part of the function
   const listTask = document.getElementById("listTask").value;
   list[0].taskList.push(listTask);
+
+  // DOM part of the function
+  sectionListedElements.innerHTML = "";
+
+  list[0].taskList.forEach(element => {
+    sectionListedElements.innerHTML += "<li>" + element;
+    sectionListedElements.innerHTML += `<button onclick="removeValue('title')" id="removeTitleToList"><span class="lnr lnr-cross-circle"></span></button>`;
+    sectionListedElements.innerHTML += "</li>";
+  });
+
 }
 
 function validateTitle() {
@@ -28,7 +39,7 @@ function validateTitle() {
   const title = document.getElementById("title").value;
   list[0].title = title;
 
-  // Dom part of the function
+  // DOM part of the function
   sectionListedTitle = document.getElementById("sectionListedTitle");
   sectionListedTitle.innerHTML = title;
 
@@ -40,7 +51,7 @@ function validateColor() {
   const color = document.getElementById("color").value;
   list[0].color = color;
 
-  // Dom part of the function
+  // DOM part of the function
   cardBody.style.backgroundColor = color;
 }
 
