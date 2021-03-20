@@ -3,6 +3,7 @@
 // Declaration of Variabiles & Object
 
 const list = {
+  id : Math.round((Math.random() * 100)),
   title : "Title",
   color : "#ececec",
   taskList : [] 
@@ -12,7 +13,6 @@ const addToList = document.getElementById("addToList");
 const createList = document.getElementById("createList");
 
 function addTaskToList() {
-
   // Logical part of the function
   const listTask = document.getElementById("listTask").value;
   list.taskList.push(listTask);
@@ -47,6 +47,7 @@ function saveList(){
   else {
     jStoredValues = localStorage.getItem("listItem");
     oStoredValues = JSON.parse(jStoredValues);
+    console.log(oStoredValues);
     // non so come creare valori univoci per la chiave del nuovo oggetto da salvare -> il nuovo List dentro il local storage deve avere valore univoco......
   }
 }
