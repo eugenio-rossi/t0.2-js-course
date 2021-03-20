@@ -98,6 +98,15 @@ function restartList(arg) {
   arg[0].title = "Title";
   arg[0].color = "#ececec";
   arg[0].taskList = [];
+
+  document.getElementById("sectionListedElements").innerHTML = "";
+  document.getElementById("sectionListedTitle").innerHTML = "";
+  document.getElementById("color").innerHTML = "";
+
+}
+
+function createSavedItem(){
+  // This function is pretty much the same game we did for the list task - Now the list is a list of object, but given that, that's the same
 }
 
 function saveList(){
