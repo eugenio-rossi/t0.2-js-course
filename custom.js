@@ -9,6 +9,7 @@ let list = [{
   taskList : [] 
 }];
 
+aList = list[0];
 
 const addToList = document.getElementById("addToList");
 const createList = document.getElementById("createList");
@@ -17,27 +18,41 @@ const sectionListedElements = document.getElementById("sectionListedElements");
 let cardBody = document.getElementsByClassName("card-body").item(0);
 let sectionListedTitle = document.getElementById("sectionListedTitle");
 
+function CreateList(){
+  sectionListedElements.innerHTML = "";
+    
+  // Recreate the html structure from the object values each time ad item is added
+  aList.taskList.forEach(element => {
+      sectionListedElements.innerHTML += "<li>" + element;
+      // the function removeTask has the index of the element as input to remove it from DOM & from list
+      sectionListedElements.innerHTML += `<button onclick="removeTask(`+ aList.taskList.indexOf(element) + `)" id="removeTitleToList"><span class="lnr lnr-cross-circle"></span></button>`;
+      sectionListedElements.innerHTML += "</li>";
+  });
+}
+
 function addTaskToList() {
   // Logical part of the function
-  const listTask = document.getElementById("listTask").value;
-  list[0].taskList.push(listTask);
+  let listTask = document.getElementById("listTask").value;
+  if ((listTask) && !(aList.taskList.includes(listTask))) {
+    aList.taskList.push(listTask);
 
-  // DOM part of the function
-  sectionListedElements.innerHTML = "";
+    // DOM part of the function
+    CreateList();
+  }
+}
 
-  list[0].taskList.forEach(element => {
-    sectionListedElements.innerHTML += "<li>" + element;
-    sectionListedElements.innerHTML += `<button onclick="removeValue('title')" id="removeTitleToList"><span class="lnr lnr-cross-circle"></span></button>`;
-    sectionListedElements.innerHTML += "</li>";
-  });
 
+
+function removeTask(index){
+  aList.taskList.splice(index, 1);
+  CreateList();
 }
 
 function validateTitle() {
 
   // Logical part of the function
   const title = document.getElementById("title").value;
-  list[0].title = title;
+  aList.title = title;
 
   // DOM part of the function
   sectionListedTitle = document.getElementById("sectionListedTitle");
@@ -49,7 +64,7 @@ function validateColor() {
 
   // Logical part of the function
   const color = document.getElementById("color").value;
-  list[0].color = color;
+  aList.color = color;
 
   // DOM part of the function
   cardBody.style.backgroundColor = color;
