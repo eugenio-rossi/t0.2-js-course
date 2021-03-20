@@ -9,15 +9,22 @@ let list = [{
   taskList : [] 
 }];
 
+// Since it is a JSON like obj, I have a varible to bypass calling the index anytime
 aList = list[0];
 
+// Get the input of Tasks
 const addToList = document.getElementById("addToList");
+// Get the input of Create list button
 const createList = document.getElementById("createList");
+// Get the DOM element of the ul
 const sectionListedElements = document.getElementById("sectionListedElements");
 
+// Get the Card of the List where it is going to be printed when created
 let cardBody = document.getElementsByClassName("card-body").item(0);
+// Get the Card of the Title where it is going to be printed when created
 let sectionListedTitle = document.getElementById("sectionListedTitle");
 
+// Function to create list - used as part of following functions
 function CreateList(){
   sectionListedElements.innerHTML = "";
     
@@ -33,7 +40,10 @@ function CreateList(){
 function addTaskToList() {
   // Logical part of the function
   let listTask = document.getElementById("listTask").value;
+
+  // Che is the value of the task is populated & if it is not already in the list
   if ((listTask) && !(aList.taskList.includes(listTask))) {
+    // Push the value in the object
     aList.taskList.push(listTask);
 
     // DOM part of the function
