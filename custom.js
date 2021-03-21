@@ -107,17 +107,24 @@ function restartList(arg) {
 
 function createSavedItem(){
   // This function is pretty much the same game we did for the list task - Now the list is a list of object, but given that, that's the same
+  localStorage.getItem("listItem");
+  oStoredValues.forEach(listItem => {
+    alert (listItem[0].title);
+  })
 }
 
 function saveList(){
   let jList = JSON.stringify(list);
   if (localStorage.getItem("listItem") === null){
+    listToPush = [];
+    listToPush.push(jList);
+    jList = listToPush;
+    console.log(jList);
     localStorage.setItem("listItem", jList);
   }
   else {
-    jStoredValues = localStorage.getItem("listItem");
-    oStoredValues = JSON.parse(jStoredValues);
-    console.log(list);
+    const jStoredValues = localStorage.getItem("listItem");
+    const oStoredValues = JSON.parse(jStoredValues);
     oStoredValues.push(list);
     localStorage.setItem("listItem", JSON.stringify(oStoredValues));
   }
