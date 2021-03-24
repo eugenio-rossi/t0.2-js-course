@@ -9,6 +9,8 @@ let list = {
   taskList : [] 
 };
 
+// As id it worth https://www.uuidgenerator.net/
+
 // Get the input of Tasks
 const addToList = document.getElementById("addToList");
 // Get the input of Create list button
