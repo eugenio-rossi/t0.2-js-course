@@ -26,8 +26,8 @@
             <div class="elementList">
             <label for="title">Titolo</label><br>
             <input type="text" id="title" name="title">
-            <button onclick="validateTitle()" id="addTitleToList" style="margin-left: 20px"><span class="lnr lnr-checkmark-circle"></span></button>
-            <button onclick="removeValue('title')" id="removeTitleToList"><span class="lnr lnr-cross-circle"></span></button>
+            <button id="addTitleToList" style="margin-left: 20px"><span class="lnr lnr-checkmark-circle"></span></button>
+            <button  id="removeTitleToList"><span class="lnr lnr-cross-circle"></span></button>
             <br>
             </div>
             <!-- End  Titolo -->
@@ -36,7 +36,7 @@
             <div class="elementList">
             <label for="listTask">Task</label><br>
             <input name="listTask" id="listTask">
-            <button onclick="addTaskToList()" id="addTaskToList" style="margin-left: 20px"><span class="lnr lnr-checkmark-circle"></span></button>
+            <button id="addTaskToList" style="margin-left: 20px"><span class="lnr lnr-checkmark-circle"></span></button>
             <br>
             </div>
             <!-- End  Task -->
@@ -45,19 +45,19 @@
             <div class="elementList">
             <label for="color">Color</label><br>
             <input type="color" id="color" name="color" value="#e66465" style="margin-bottom: 40px;">
-            <button onclick="validateColor()" id="addColorToList" style="margin-left: 20px"><span class="lnr lnr-checkmark-circle"></span></button>
-            <button onclick="removeValue('color')" id="removeColorToList"><span class="lnr lnr-cross-circle"></span></button>
+            <button id="addColorToList" style="margin-left: 20px"><span class="lnr lnr-checkmark-circle"></span></button>
+            <button id="removeColorToList"><span class="lnr lnr-cross-circle"></span></button>
             <br>
             </div>
             <!-- End  Color -->
 
             <!-- Submit AddToList -->
-            <input type="submit" onclick="addTaskToList()" value="Aggiungi Task alla lista" id="addToList" style="margin-bottom: 40px;">
+            <input type="submit" value="Aggiungi Task alla lista" id="addToList" style="margin-bottom: 40px;">
             <br>
             <!-- End Submit AddToList -->
 
             <!-- Submit SaveList -->
-            <input type="submit" onclick="saveList()" value="Salva la lista" id="createList">
+            <input type="submit" value="Salva la lista" id="createList">
             <!-- End Submit SaveList -->
 
 
@@ -77,5 +77,6 @@
     </div>
     </section>
 </body>
-<script src="custom.js"></script>
+<script src="controller.js"></script>
+<script src="vue.js"></script>
 </html>
